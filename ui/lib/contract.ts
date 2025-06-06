@@ -28,7 +28,9 @@ export const ERC20_ABI = [
 // Approve HookTuah to spend Token0
 import { writeContract } from "@wagmi/core";
 
-export async function approveToken0(account: string, amount: bigint = BigInt("1000000000000000000000000")) {
+import type { Address } from 'viem';
+
+export async function approveToken0(account: Address | undefined, amount: bigint = BigInt("1000000000000000000000000")) {
   return writeContract({
     address: TOKEN0_ADDRESS,
     abi: ERC20_ABI,
@@ -39,7 +41,7 @@ export async function approveToken0(account: string, amount: bigint = BigInt("10
 }
 
 // Approve HookTuah to spend Token1
-export async function approveToken1(account: string, amount: bigint = BigInt("1000000000000000000000000")) {
+export async function approveToken1(account: Address | undefined, amount: bigint = BigInt("1000000000000000000000000")) {
   return writeContract({
     address: TOKEN1_ADDRESS,
     abi: ERC20_ABI,
